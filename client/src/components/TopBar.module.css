@@ -1,0 +1,171 @@
+.header {
+  display: grid;
+  grid-template-columns: 88px minmax(0, 720px) 88px;
+  align-items: center;
+  width: 896px;
+  max-width: 100%;
+  margin: 0 auto 24px;
+}
+
+.side {
+  display: flex;
+  justify-content: flex-start;
+}
+
+.center {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  min-width: 0;
+  width: 100%;
+}
+
+.leading {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.mobileBack {
+  display: none;
+  flex: 0 0 auto;
+}
+
+.title {
+  font-family: var(--font-display);
+  font-size: 32px;
+  line-height: 48px;
+  font-weight: 500;
+  color: var(--color-text);
+}
+
+.actions {
+  display: flex;
+  align-items: center;
+  gap: 24px;
+}
+
+.secondaryButtons {
+  display: flex;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+.settingsAnchor {
+  position: relative;
+}
+
+.mobileSettingsMenu {
+  display: none;
+}
+
+.mobileSettingsItem {
+  display: flex;
+}
+
+.mobileSettingsAction {
+  --icon-button-background: var(--color-grey-100);
+}
+
+.profileButton {
+  width: 40px;
+  height: 40px;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0;
+  border: none;
+  border-radius: 8px;
+  background: transparent;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+
+.profileButton:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.profileButton:focus-visible {
+  outline: 1px solid var(--color-focus);
+  outline-offset: 0;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.profileButton:active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.profile {
+  width: 24px;
+  height: 24px;
+  border-radius: 999px;
+  object-fit: cover;
+}
+
+.trailing {
+  justify-content: flex-end;
+}
+
+@media (max-width: 900px) {
+  .header {
+    width: 100%;
+    grid-template-columns: minmax(0, 1fr);
+    margin-bottom: 20px;
+  }
+
+  .side {
+    display: none;
+  }
+
+  .center {
+    display: grid;
+    grid-template-columns: minmax(0, 1fr) auto;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .mobileBack {
+    display: flex;
+  }
+
+  .leading {
+    gap: 12px;
+  }
+
+  .title {
+    min-width: 0;
+    font-size: 22px;
+    line-height: 32px;
+    white-space: nowrap;
+  }
+
+  .actions {
+    width: auto;
+    flex: 0 0 auto;
+    justify-content: flex-end;
+    gap: 8px;
+  }
+
+  .secondaryButtons {
+    gap: 6px;
+  }
+
+  .mobileSettingsMenu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    transform: translateX(-50%);
+    z-index: 6;
+  }
+
+  .mobileSettingsItem {
+    justify-content: center;
+  }
+
+  .trailing {
+    display: none;
+  }
+}

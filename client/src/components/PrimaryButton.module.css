@@ -1,0 +1,105 @@
+.button {
+  box-sizing: border-box;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding: 8px 16px 8px 12px;
+  gap: 8px;
+  width: 120px;
+  height: 40px;
+  border: none;
+  border-radius: 1000px;
+  background:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
+    linear-gradient(180deg, rgba(40, 40, 40, 0.7) 0%, #282828 100%),
+    #141414;
+  color: var(--color-text);
+  font: inherit;
+  font-size: 14px;
+  line-height: 18px;
+  letter-spacing: 0.01em;
+  font-weight: 400;
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    box-shadow 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.button:hover {
+  background:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.06), rgba(255, 255, 255, 0.06)),
+    linear-gradient(180deg, rgba(40, 40, 40, 0.78) 0%, #2f2f2f 100%),
+    #141414;
+}
+
+.button:focus-visible {
+  outline: 1px solid var(--color-focus);
+  outline-offset: 0;
+}
+
+.button:active {
+  background:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
+    linear-gradient(180deg, rgba(40, 40, 40, 0.7) 0%, #282828 100%),
+    #141414;
+}
+
+.button:disabled {
+  background:
+    linear-gradient(0deg, rgba(255, 255, 255, 0.04), rgba(255, 255, 255, 0.04)),
+    linear-gradient(180deg, rgba(40, 40, 40, 0.7) 0%, #282828 100%),
+    #141414;
+  opacity: 1;
+  cursor: not-allowed;
+}
+
+.icon {
+  width: 24px;
+  height: 24px;
+}
+
+.icon :global(svg) {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.label {
+  white-space: nowrap;
+}
+
+@media (max-width: 900px) {
+  .button {
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    padding: 8px;
+    gap: 0;
+    border-radius: 8px;
+    background: var(--color-grey-60);
+  }
+
+  .icon,
+  .icon :global(svg) {
+    width: 20px;
+    height: 20px;
+  }
+
+  .button:hover {
+    background: var(--color-grey-50);
+  }
+
+  .button:active {
+    background: var(--color-grey-30);
+  }
+
+  .button:disabled {
+    background: var(--color-grey-60);
+  }
+
+  .label {
+    display: none;
+  }
+}

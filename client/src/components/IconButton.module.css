@@ -1,0 +1,87 @@
+.button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 40px;
+  height: 40px;
+  padding: 8px;
+  border: none;
+  border-radius: 8px;
+  background: var(--icon-button-background, transparent);
+  color: var(--color-text);
+  cursor: pointer;
+  transition:
+    background-color 160ms ease,
+    color 160ms ease,
+    opacity 160ms ease,
+    transform 160ms ease;
+}
+
+.button[data-variant='ghost']:hover {
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.button[data-variant='ghost']:focus-visible {
+  outline: 1px solid var(--color-focus);
+  outline-offset: 0;
+  background: rgba(255, 255, 255, 0.04);
+}
+
+.button[data-variant='ghost']:active {
+  background: rgba(255, 255, 255, 0.08);
+}
+
+.button[data-variant='ghost'][data-active='true'] {
+  background: var(--color-grey-60);
+}
+
+.button[data-variant='filled'] {
+  background: var(--color-grey-60);
+}
+
+.button[data-variant='filled']:hover {
+  background: var(--color-grey-50);
+}
+
+.button[data-variant='filled']:focus-visible {
+  outline: 1px solid var(--color-focus);
+  outline-offset: 0;
+  background: var(--color-grey-50);
+}
+
+.button[data-variant='filled']:active {
+  background: var(--color-grey-30);
+}
+
+.button[data-variant='filled'][data-active='true'] {
+  background: var(--color-grey-50);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 24px;
+  height: 24px;
+  flex: 0 0 24px;
+}
+
+.icon :global(svg) {
+  width: 24px;
+  height: 24px;
+  display: block;
+}
+
+.button[data-subtle='true'] {
+  background: var(--color-grey-60);
+}
+
+.button[data-subtle='true']:hover,
+.button[data-subtle='true']:focus-visible {
+  background: var(--color-grey-50);
+}
+
+.button:disabled {
+  opacity: 0.32;
+  cursor: not-allowed;
+}

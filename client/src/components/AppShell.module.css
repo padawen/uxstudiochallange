@@ -1,0 +1,48 @@
+.shell {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  padding: 120px 0 96px;
+  background: var(--color-background);
+  overflow: hidden;
+}
+
+.shell::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  pointer-events: none;
+  background:
+    linear-gradient(var(--color-border), var(--color-border)) center 96px / 100% 1px no-repeat,
+    linear-gradient(var(--color-border), var(--color-border)) center 192px / 100% 1px no-repeat,
+    linear-gradient(var(--color-border), var(--color-border)) calc(50% - 384px) center / 1px
+      100% no-repeat,
+    linear-gradient(var(--color-border), var(--color-border)) calc(50% + 384px) center / 1px
+      100% no-repeat;
+}
+
+.panel {
+  position: relative;
+  z-index: 1;
+  width: min(896px, calc(100vw - 48px));
+}
+
+@media (max-width: 900px) {
+  .shell {
+    padding: 84px 16px 32px;
+  }
+
+  .shell::before {
+    background:
+      linear-gradient(var(--color-border), var(--color-border)) center 72px / 100% 1px no-repeat,
+      linear-gradient(var(--color-border), var(--color-border)) center 136px / 100% 1px no-repeat,
+      linear-gradient(var(--color-border), var(--color-border)) 8px center / 1px 100% no-repeat,
+      linear-gradient(var(--color-border), var(--color-border)) calc(100% - 8px) center / 1px
+        100% no-repeat;
+  }
+
+  .panel {
+    width: 100%;
+  }
+}

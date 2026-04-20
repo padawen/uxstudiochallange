@@ -1,0 +1,77 @@
+.menu {
+  position: absolute;
+  top: calc(100% + 12px);
+  left: 0;
+  display: flex;
+  flex-direction: column;
+  align-items: stretch;
+  width: 219px;
+  height: 132px;
+  padding: 0;
+  border-radius: 8px;
+  overflow: hidden;
+  background: var(--color-grey-80);
+  z-index: 5;
+}
+
+.menu[data-direction='up'] {
+  top: auto;
+  bottom: calc(100% + 12px);
+}
+
+@media (max-width: 900px) {
+  .menu {
+    right: 0;
+    left: auto;
+  }
+}
+
+.item {
+  display: flex;
+  align-items: center;
+  justify-content: flex-start;
+  gap: 12px;
+  width: 100%;
+  height: 44px;
+  padding: 12px 10px;
+  border: none;
+  background: transparent;
+  color: var(--color-text);
+  font-family: var(--font-body);
+  font-size: 14px;
+  line-height: 20px;
+  letter-spacing: 0.01em;
+  text-align: left;
+  appearance: none;
+  -webkit-appearance: none;
+  cursor: pointer;
+  transition: background-color 160ms ease;
+}
+
+.item:hover {
+  background: var(--color-grey-70);
+}
+
+.item:focus-visible {
+  outline: none;
+  background: var(--color-grey-70);
+}
+
+.icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 20px;
+  height: 20px;
+  flex: 0 0 auto;
+  color: var(--color-muted);
+}
+
+.icon :global(svg) {
+  width: 20px;
+  height: 20px;
+}
+
+.danger {
+  color: var(--color-text);
+}

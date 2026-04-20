@@ -1,0 +1,123 @@
+.item {
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 720px;
+  min-height: 66px;
+  transition: opacity 160ms ease;
+}
+
+.menuOpen {
+}
+
+.itemActive {
+}
+
+.info {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+  min-width: 0;
+}
+
+.body {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  min-width: 0;
+}
+
+.name {
+  color: var(--color-text);
+  font-size: 16px;
+  line-height: 24px;
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+}
+
+.meta {
+  color: var(--color-subtle);
+  font-size: 12px;
+  line-height: 16px;
+  letter-spacing: 0.01em;
+  overflow-wrap: anywhere;
+}
+
+.actions {
+  position: relative;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  width: 140px;
+  opacity: 0;
+  pointer-events: none;
+  transition: opacity 160ms ease;
+}
+
+.callLink {
+  display: inline-flex;
+}
+
+.menuAnchor {
+  position: relative;
+  display: inline-flex;
+}
+
+.item:hover .actions,
+.item:focus-within .actions,
+.itemActive .actions,
+.menuOpen .actions {
+  opacity: 1;
+  pointer-events: auto;
+}
+
+.item:focus-visible {
+  outline: none;
+}
+
+.actions > :global(button),
+.actions > :global(a) > :global(button),
+.menuAnchor > :global(button) {
+  width: 40px;
+  height: 40px;
+}
+
+.actions > :global(button) :global(svg),
+.actions > :global(a) > :global(button) :global(svg),
+.menuAnchor > :global(button) :global(svg) {
+  width: 20px;
+  height: 20px;
+}
+
+@media (max-width: 900px) {
+  .item {
+    width: 100%;
+  }
+}
+
+@media (max-width: 640px) {
+  .item {
+    align-items: flex-start;
+  }
+
+  .info {
+    flex: 1 1 auto;
+  }
+
+  .actions {
+    display: none;
+    width: auto;
+    flex: 0 0 auto;
+    gap: 2px;
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .item:hover .actions,
+  .item:focus-within .actions,
+  .itemActive .actions,
+  .menuOpen .actions {
+    display: flex;
+  }
+}
