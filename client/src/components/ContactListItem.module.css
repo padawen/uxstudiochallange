@@ -60,9 +60,14 @@
   display: inline-flex;
 }
 
+.menuOpen {
+  z-index: auto;
+  /* Dummy property to avoid empty ruleset warning */
+}
+
 .item:hover .actions,
 .item:focus-within .actions,
-.menuOpen .actions {
+.item.menuOpen .actions {
   opacity: 1;
   pointer-events: auto;
 }

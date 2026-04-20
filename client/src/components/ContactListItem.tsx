@@ -45,6 +45,9 @@ export const ContactListItem = ({
       className={`${styles.item} ${active ? styles.itemActive : ''} ${menuOpen ? styles.menuOpen : ''}`}
       onClick={onActivate}
       onKeyDown={handleKeyDown}
+      onMouseLeave={() => {
+        if (menuOpen) onToggleMenu()
+      }}
       tabIndex={0}
     >
       <div className={styles.info}>
