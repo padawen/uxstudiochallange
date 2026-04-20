@@ -64,13 +64,15 @@ export const TopBar = ({ onAddContact }: TopBarProps) => {
           <div className={styles.secondaryButtons}>
             <div className={styles.settingsAnchor} ref={settingsRef}>
               <IconButton
-                active={isSettingsOpen}
+                active={isSettingsOpen && typeof window !== 'undefined' && window.innerWidth <= 900}
                 aria-expanded={isSettingsOpen}
                 aria-haspopup="menu"
                 aria-label="Settings"
                 icon={<GearIcon />}
                 onClick={() => {
-                  setIsSettingsOpen((current) => !current)
+                  if (window.innerWidth <= 900) {
+                    setIsSettingsOpen((current) => !current)
+                  }
                 }}
               />
               {isSettingsOpen ? (
