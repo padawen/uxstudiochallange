@@ -17,17 +17,16 @@
     transform 160ms ease;
 }
 
-.button[data-variant='ghost']:hover {
+.button:hover {
   background: rgba(255, 255, 255, 0.04);
 }
 
-.button[data-variant='ghost']:focus-visible {
+.button:focus-visible {
   outline: 1px solid var(--color-focus);
   outline-offset: 0;
-  background: rgba(255, 255, 255, 0.04);
 }
 
-.button[data-variant='ghost']:active {
+.button:active {
   background: rgba(255, 255, 255, 0.08);
 }
 

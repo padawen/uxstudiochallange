@@ -11,15 +11,6 @@ export const getContactName = (contact: Pick<Contact, 'name'>) =>
 
 export const normalizeContactName = (value: string) => collapseWhitespace(value)
 
-export const getInitials = (contact: Pick<Contact, 'name'>) => {
-  const fullName = getContactName(contact)
-  const parts = fullName.split(' ')
-  const first = parts[0]?.charAt(0) ?? ''
-  const second = parts[1]?.charAt(0) ?? ''
-
-  return `${first}${second || first}`.toUpperCase()
-}
-
 export const sanitizePhoneHref = (phoneNumber: string) =>
   `tel:${phoneNumber.replace(/[^\d+]/g, '')}`
 
@@ -35,11 +26,11 @@ export const toContactFormValues = (
 ): ContactFormValues =>
   contact
     ? {
-        name: contact.name,
-        phoneNumber: contact.phoneNumber,
-        email: contact.email,
-        avatarUrl: contact.avatarUrl,
-      }
+      name: contact.name,
+      phoneNumber: contact.phoneNumber,
+      email: contact.email,
+      avatarUrl: contact.avatarUrl,
+    }
     : createEmptyContactFormValues()
 
 const emailPattern = /\S+@\S+\.\S+/

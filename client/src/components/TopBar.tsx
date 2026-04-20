@@ -10,23 +10,32 @@ interface TopBarProps {
 }
 
 export const TopBar = ({ onAddContact }: TopBarProps) => {
-  const [isMobileSettingsOpen, setIsMobileSettingsOpen] = useState(false)
+  const [isSettingsOpen, setIsSettingsOpen] = useState(false)
+  const [isDarkMode, setIsDarkMode] = useState(true)
   const settingsRef = useRef<HTMLDivElement | null>(null)
 
+  const toggleTheme = () => {
+    setIsDarkMode((prev) => !prev)
+    document.documentElement.setAttribute(
+      'data-theme',
+      !isDarkMode ? 'dark' : 'light',
+    )
+  }
+
   useEffect(() => {
-    if (!isMobileSettingsOpen) {
+    if (!isSettingsOpen) {
       return
     }
 
     const handlePointerDown = (event: PointerEvent) => {
       if (!settingsRef.current?.contains(event.target as Node)) {
-        setIsMobileSettingsOpen(false)
+        setIsSettingsOpen(false)
       }
     }
 
     const handleEscape = (event: KeyboardEvent) => {
       if (event.key === 'Escape') {
-        setIsMobileSettingsOpen(false)
+        setIsSettingsOpen(false)
       }
     }
 
@@ -37,7 +46,7 @@ export const TopBar = ({ onAddContact }: TopBarProps) => {
       document.removeEventListener('pointerdown', handlePointerDown)
       document.removeEventListener('keydown', handleEscape)
     }
-  }, [isMobileSettingsOpen])
+  }, [isSettingsOpen])
 
   return (
     <header className={styles.header}>
@@ -55,22 +64,23 @@ export const TopBar = ({ onAddContact }: TopBarProps) => {
           <div className={styles.secondaryButtons}>
             <div className={styles.settingsAnchor} ref={settingsRef}>
               <IconButton
-                active={isMobileSettingsOpen}
-                aria-expanded={isMobileSettingsOpen}
+                active={isSettingsOpen}
+                aria-expanded={isSettingsOpen}
                 aria-haspopup="menu"
                 aria-label="Settings"
                 icon={<GearIcon />}
                 onClick={() => {
-                  setIsMobileSettingsOpen((current) => !current)
+                  setIsSettingsOpen((current) => !current)
                 }}
               />
-              {isMobileSettingsOpen ? (
-                <div className={styles.mobileSettingsMenu} role="menu">
-                  <div className={styles.mobileSettingsItem} role="none">
+              {isSettingsOpen ? (
+                <div className={styles.settingsMenu} role="menu">
+                  <div className={styles.settingsItem} role="none">
                     <IconButton
-                      aria-label="Theme"
-                      className={styles.mobileSettingsAction}
+                      aria-label="Toggle Theme"
+                      className={styles.settingsAction}
                       icon={<LightModeIcon />}
+                      onClick={toggleTheme}
                       role="menuitem"
                     />
                   </div>
@@ -92,7 +102,11 @@ export const TopBar = ({ onAddContact }: TopBarProps) => {
         </div>
       </div>
       <div className={`${styles.side} ${styles.trailing}`}>
-        <IconButton aria-label="Theme" icon={<LightModeIcon />} />
+        <IconButton
+          aria-label="Toggle Theme"
+          icon={<LightModeIcon />}
+          onClick={toggleTheme}
+        />
       </div>
     </header>
   )

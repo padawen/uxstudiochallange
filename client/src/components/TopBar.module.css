@@ -56,15 +56,28 @@
   position: relative;
 }
 
-.mobileSettingsMenu {
+.settingsMenu {
   display: none;
 }
 
-.mobileSettingsItem {
-  display: flex;
+@media (max-width: 900px) {
+  .settingsMenu {
+    position: absolute;
+    top: calc(100% + 8px);
+    left: 50%;
+    display: flex;
+    justify-content: center;
+    transform: translateX(-50%);
+    z-index: 6;
+  }
 }
 
-.mobileSettingsAction {
+.settingsItem {
+  display: flex;
+  justify-content: center;
+}
+
+.settingsAction {
   --icon-button-background: var(--color-grey-100);
 }
 
@@ -151,19 +164,6 @@
     gap: 6px;
   }
 
-  .mobileSettingsMenu {
-    position: absolute;
-    top: calc(100% + 8px);
-    left: 50%;
-    display: flex;
-    justify-content: center;
-    transform: translateX(-50%);
-    z-index: 6;
-  }
-
-  .mobileSettingsItem {
-    justify-content: center;
-  }
 
   .trailing {
     display: none;

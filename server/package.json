@@ -17,6 +17,7 @@
   },
   "dependencies": {
     "@prisma/client": "^6.7.0",
+    "contact-management-challenge": "file:..",
     "cors": "^2.8.5",
     "express": "^5.1.0",
     "zod": "^4.1.12"

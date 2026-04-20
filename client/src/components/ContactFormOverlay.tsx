@@ -2,7 +2,6 @@ import { useRef } from 'react'
 
 import { useContactForm } from '../hooks/useContactForm'
 import type { ContactFormValues } from '../types/contact'
-import { getInitials } from '../utils/contact'
 import { fileToDataUrl } from '../utils/file'
 import { Avatar } from './Avatar'
 import { ChangeIcon, PlusIcon, TrashIcon } from './icons'
@@ -28,7 +27,7 @@ export const ContactFormOverlay = ({
 }: ContactFormOverlayProps) => {
   const fileInputRef = useRef<HTMLInputElement | null>(null)
   const { errors, setField, validate, values } = useContactForm(initialValues)
-  const avatarInitials = getInitials({ name: values.name || 'N A' })
+
 
   const handleSubmit = async () => {
     const nextErrors = validate()
@@ -76,7 +75,7 @@ export const ContactFormOverlay = ({
               <Avatar
                 className={styles.avatarPreview}
                 contact={{
-                  name: avatarInitials,
+                  name: values.name,
                   avatarUrl: values.avatarUrl,
                 }}
                 size="large"
