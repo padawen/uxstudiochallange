@@ -113,9 +113,11 @@ export const ContactsPage = () => {
             contacts={contacts}
             menuOpenContactId={menuOpenContactId}
             onActivate={(contact) => {
-              setActiveContactId((current) =>
-                current === contact.id ? null : contact.id,
-              )
+              if (window.innerWidth <= 900) {
+                setActiveContactId((current) =>
+                  current === contact.id ? null : contact.id,
+                )
+              }
             }}
             onEdit={openEditForm}
             onRemove={(contact) => {
@@ -127,10 +129,9 @@ export const ContactsPage = () => {
               setMenuOpenContactId(null)
             }}
             onToggleMenu={(contact) => {
-              setActiveContactId(contact.id)
-              setMenuOpenContactId((current) =>
-                current === contact.id ? null : contact.id,
-              )
+              const menuIsOpening = menuOpenContactId !== contact.id
+              setActiveContactId(menuIsOpening ? contact.id : null)
+              setMenuOpenContactId(menuIsOpening ? contact.id : null)
             }}
           />
         ) : null}

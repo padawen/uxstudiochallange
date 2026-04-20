@@ -52,6 +52,10 @@
   background: var(--color-grey-70);
 }
 
+.item:active {
+  background: var(--color-grey-60);
+}
+
 .item:focus-visible {
   outline: none;
   background: var(--color-grey-70);

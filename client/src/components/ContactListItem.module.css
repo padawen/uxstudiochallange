@@ -8,11 +8,7 @@
   transition: opacity 160ms ease;
 }
 
-.menuOpen {
-}
 
-.itemActive {
-}
 
 .info {
   display: flex;
@@ -66,26 +62,33 @@
 
 .item:hover .actions,
 .item:focus-within .actions,
-.itemActive .actions,
 .menuOpen .actions {
   opacity: 1;
   pointer-events: auto;
+}
+
+@media (min-width: 901px) {
+
+  .item:focus-within:not(:hover):not(:focus-visible) .actions {
+    opacity: 0;
+    pointer-events: none;
+  }
 }
 
 .item:focus-visible {
   outline: none;
 }
 
-.actions > :global(button),
-.actions > :global(a) > :global(button),
-.menuAnchor > :global(button) {
+.actions> :global(button),
+.actions> :global(a)> :global(button),
+.menuAnchor> :global(button) {
   width: 40px;
   height: 40px;
 }
 
-.actions > :global(button) :global(svg),
-.actions > :global(a) > :global(button) :global(svg),
-.menuAnchor > :global(button) :global(svg) {
+.actions> :global(button) :global(svg),
+.actions> :global(a)> :global(button) :global(svg),
+.menuAnchor> :global(button) :global(svg) {
   width: 20px;
   height: 20px;
 }
@@ -93,6 +96,11 @@
 @media (max-width: 900px) {
   .item {
     width: 100%;
+  }
+
+  .itemActive .actions {
+    opacity: 1;
+    pointer-events: auto;
   }
 }
 

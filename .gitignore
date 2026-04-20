@@ -26,3 +26,4 @@ Thumbs.db
 
 server/uploads/
 server/prisma/seed.ts
+server/prisma/*.db

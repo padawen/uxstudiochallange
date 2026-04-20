@@ -32,6 +32,7 @@
 
 .input:hover:not(:disabled) {
   border-color: var(--color-grey-30);
+  background: var(--color-grey-70);
 }
 
 .input::placeholder {
@@ -42,10 +43,10 @@
   color: var(--color-text);
 }
 
-.input:focus-visible {
+.input:focus {
   outline: none;
   border-color: var(--color-grey-10);
-  background: var(--color-surface-2);
+  background: var(--color-grey-60);
   color: var(--color-text);
 }
 
@@ -65,7 +66,7 @@
   color: var(--color-text);
 }
 
-.field[data-error='true'] .input:focus-visible {
+.field[data-error='true'] .input:focus {
   border-color: #ffb1b1;
 }
 
