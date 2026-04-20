@@ -2,10 +2,6 @@
 
 ## Setup
 ```bash
-# Option A: One-step setup
-./setup.sh
-
-# Option B: Manual setup
 npm run install:all
 npm run prisma:generate
 ```
